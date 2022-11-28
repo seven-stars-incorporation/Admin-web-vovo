@@ -245,6 +245,15 @@ if (isset($_GET['id'])){
 
                     <a class="btn" id="btnAdicionaIngrediente"><i class="fa fa-plus"></i> Adicionar Mais
                         ingredientes</a>
+                    
+                    <br>
+                    <br>
+                    <label for="name">Imagem da receita</label>
+                    <div class="file-upload">
+                        <input class="file-upload__input" type="file" name="myFile[]" id="myFile" multiple>
+                        <button class="file-upload__button" type="button">Escolha um arquivo</button>
+                        <span class="file-upload__label"></span>
+                    </div>
 
                 </fieldset>
                 <br>
