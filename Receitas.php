@@ -29,6 +29,7 @@ if (isset($_GET['id'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -53,7 +54,7 @@ if (isset($_GET['id'])){
                     <span class="material-symbols-sharp">grid_view</span>
                     <h3>Geral</h3>
                 </a>
-            
+
                 <a href="/dashboard-admin/Receitas.php" class="active">
                     <span class="material-symbols-sharp">receipt_long</span>
                     <h3>Receitas</h3>
@@ -63,11 +64,6 @@ if (isset($_GET['id'])){
                     <span class="material-symbols-sharp">inventory</span>
                     <h3>Ingredientes</h3>
                 </a>
-
-                <!-- <a href="/dashboard-admin/Categorias.php">
-                    <span class="material-symbols-sharp">category</span>
-                    <h3>Categorias</h3>
-                </a> -->
             </div>
         </aside>
         <!-- fim da sidebar -->
@@ -110,7 +106,7 @@ if (isset($_GET['id'])){
                             </tbody>
                         </table>
                     </div>
-                    
+
                 </div>
 
                 <div class="ingredients-total">
@@ -126,7 +122,7 @@ if (isset($_GET['id'])){
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php
+                                <?php
                                 $html = "";
                                 $max = 3;
                                 
@@ -144,7 +140,7 @@ if (isset($_GET['id'])){
                             </tbody>
                         </table>
                     </div>
-                    
+
                 </div>
 
                 <div class="ingredients-total-search">
@@ -160,7 +156,7 @@ if (isset($_GET['id'])){
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php
+                                <?php
                                 $html = "";
                                 $last = count($menosTempo)-1;
                                 $max = intval($menosTempo[$last]['tempoReceita']);
@@ -179,31 +175,11 @@ if (isset($_GET['id'])){
                             </tbody>
                         </table>
                     </div>
-                    
+
                 </div>
                 <!-- fim do grafico de ingredientes -->
             </div>
             <!-- fim dos insights -->
-
-            <!-- <div class="recent-ingredients">
-                <h2> Ingredientes Recentes</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>pinto de borracha</td>
-                        </tr>
-                        <tr>
-                            <td>pinto de borracha</td>
-                        </tr> BUCETA
-                    </tbody>
-                </table>
-                <a href="">Mostrar Todos</a>
-            </div> -->
 
             <div class="recent-ingredients" style="display: flex; flex-direction: column; align-items: center;">
                 <h2>Receitas</h2>
@@ -228,7 +204,7 @@ if (isset($_GET['id'])){
 
                         echo $html;
                         ?>
-                        
+
                     </tbody>
                 </table>
                 <a href="Receitas.php">Mostrar todos</a>
@@ -249,7 +225,7 @@ if (isset($_GET['id'])){
         </div>
     </div>
 
-    <dialog id="dv-modal" class="modal">
+    <div id="dv-modal" class="modal">
         <div class="form-register">
             <form action="Receitas.php" method="post">
 
@@ -258,18 +234,20 @@ if (isset($_GET['id'])){
                 <fieldset>
                     <legend><span class="number">1</span>Informacoes da receita</legend>
                     <label for="name">Nome</label>
-                    <input type="text" id="name" name="name">
+                    <input type="text" id="ingrediente" name="ingrediente" placeholder="insira o nome do ingrediente">
 
-                    <label for="price">Custo Aproximado</label>
-                    <input type="number" id="price" name="price" placeholder="$">
+                    <label>Preco do ingrediente</label>
+                    <input type="number" id="precoIngrediente" name="precoIngrediente" class="form-control campoDefault"
+                        placeholder="insira o preço do ingrediente" />
 
+                    <div id="imendaHTMLingrediente"></div>
+                    <br>
 
-                    <label for="bio">Ingredientes</label>
-                    <textarea id="bio" name="prepare"></textarea>
+                    <a class="btn" id="btnAdicionaIngrediente"><i class="fa fa-plus"></i> Adicionar Mais
+                        ingredientes</a>
 
-                    <label for="job">Categoria</label>
-                    <input type="text" id="category" name="category">
                 </fieldset>
+                <br>
 
                 <fieldset>
                     <legend><span class="number">2</span>Preparo</legend>
@@ -288,9 +266,91 @@ if (isset($_GET['id'])){
                 <button class="btn-close" onclick="closeModal('dv-modal')">Fechar</button>
             </div>
         </div>
-    </dialog>
+    </div>
 
     <script src="js/Index.js"></script>
+    <script type="text/javascript">
+        var idContador = 0;
+
+        function exclui(id) {
+            var campo = $("#" + id.id);
+            campo.hide(200);
+        }
+
+        $(document).ready(function () {
+
+            $("#btnAdicionaIngrediente").click(function (e) {
+                e.preventDefault();
+                var tipoCampo = "ingrediente";
+                adicionaCampo(tipoCampo);
+            })
+
+            function adicionaCampo(tipo) {
+
+                idContador++;
+
+                var idCampoNomeIngrediente = "ingrediente" + idContador;
+                var idPreco = "precoIngrediente" + idContador;
+                var numCampo = idContador;
+                var idForm = "formIngredientes" + idContador;
+
+                var html = "";
+
+                html += "<div style='margin-top: 8px;' class='input-group' id='" + idForm + "'>";
+                html += "<label>Nome do ingrediente</label>";
+                html += "<input type='text' id='" + idCampoNomeIngrediente +
+                    "' placeholder='Insira o nome do " + numCampo + "o " + tipo + "'>";
+                html += "<label>Preco do ingrediente</label>";
+                html += "<input type='number' id='" + idPreco +
+                    "' class='form-control novoCampo' placeholder='Insira o preço do " + numCampo + "o " +
+                    tipo + "'/>";
+                html += "<span class='input-group-btn'>";
+                html += "<button class='btn' onclick='exclui(" + idForm +
+                    ")' type='button'><span class='fa fa-trash'></span></button>";
+
+                html += "</span>";
+                html += "</div>";
+
+                $("#imendaHTML" + tipo).append(html);
+            }
+
+            $(".btnExcluir").click(function () {
+                console.log("clicou");
+                $(this).slideUp(200);
+            })
+
+            $("#btnSalvar").click(function () {
+
+                var mensagem = "";
+                var novosCampos = [];
+                var camposNulos = false;
+
+                $('.campoDefault').each(function () {
+                    if ($(this).val().length < 1) {
+                        camposNulos = true;
+                    }
+                });
+                $('.novoCampo').each(function () {
+                    if ($(this).is(":visible")) {
+                        if ($(this).val().length < 1) {
+                            camposNulos = true;
+                        }
+                        //novosCampos.push($(this).val());
+                        mensagem += $(this).val() + "\n";
+                    }
+                });
+
+                if (camposNulos == true) {
+                    alert("Atenção: existem campos nulos");
+                } else {
+                    alert("Novos campos adicionados: \n\n " + mensagem);
+                }
+
+                novosCampos = [];
+            })
+
+        });
+    </script>
 </body>
 
 </html>
