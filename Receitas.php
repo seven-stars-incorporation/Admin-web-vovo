@@ -233,7 +233,10 @@ if (isset($_GET['id'])){
 
                 <fieldset>
                     <legend><span class="number">1</span>Informacoes da receita</legend>
-                    <label for="name">Nome</label>
+                    <label for="name">Nome da receita</label>
+                    <input type="text" id="receitaName" name="receitaName" placeholder="insira o nome da Receita">
+                    
+                    <label for="name">Nome do ingrediente</label>
                     <input type="text" id="ingrediente" name="ingrediente" placeholder="insira o nome do ingrediente">
 
                     <label>Preco do ingrediente</label>
