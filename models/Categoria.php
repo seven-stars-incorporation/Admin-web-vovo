@@ -1,18 +1,18 @@
 <?php
-    require_once("database/Conexao.php");
+    require_once("../database/Conexao.php");
 
     class Categoria{
-        private $idIngrediente, $valorIngrediente;
-        private $nomeIngrediente;
+        private $idCategoria, $descCategoria;
+        private $idReceita;
 
-        public function getIdIngrediente(){
-            return $this->idIngrediente;
+        public function getIdReceita(){
+            return $this->idReceita;
         }
-        public function getNomeIngrediente(){
-            return $this->nomeIngrediente;
+        public function getDescCategoria(){
+            return $this->descCategoria;
         }
-        public function setIdIngrediente($idIngrediente){
-            $this->idIngrediente = $idIngrediente;
+        public function setIdReceita($idReceita){
+            $this->idReceita = $idReceita;
         }
         public function setNomeIngrediente($nomeIngrediente){
             $this->nomeIngrediente = $nomeIngrediente;
@@ -23,9 +23,9 @@
             return $this->valorIngrediente;
         }
 
-        public function setValorIngrediente($valorIngrediente)
+        public function setDescCategoria($descCategoria)
         {
-            $this->valorIngrediente = $valorIngrediente;
+            $this->descCategoria = $descCategoria;
         }
 
         public function count(){
@@ -61,6 +61,17 @@
             $resultado = $con->query($querySelect);
             $lista = $resultado->fetchAll();
             return $lista;
+        }
+
+        public function cadastrar($categoria){
+            $con = Conexao::conectar();
+            $stmt = $con->prepare("INSERT INTO `tbcategoria`(`idReceita`, `descCategoria`) VALUES (?, ?)");
+            $stmt->bindValue(1, $categoria->getIdReceita());
+            $stmt->bindValue(2, $categoria->getDescCategoria());
+            $stmt->execute();
+            $lastID = "SELECT LAST_INSERT_ID()";
+            $result = $con->query($lastID);
+            return $result->fetchAll()[0][0];
         }
 
     }

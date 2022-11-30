@@ -1,5 +1,5 @@
 <?php
-    require_once("database/Conexao.php");
+    require_once("../database/Conexao.php");
 
     class Receita{
         private $idReceita, $idsIngredientes, $nomeReceita, $modoPreparo, $tempoReceita, $caminhoImg;
@@ -41,14 +41,18 @@
             return $this->caminhoImg = $caminhoImg;
         }
 
-        public function read_with_name($category_name){
+        public function cadastrar($Receita){
             $con = Conexao::conectar();
-            $querySelect = "SELECT tbreceita.* FROM tbcategoria
-                            INNER JOIN tbreceita ON tbcategoria.idReceita = tbreceita.idReceita
-                                WHERE descCategoria LIKE \"$category_name\" ";
-            $resultado = $con->query($querySelect);
-            $lista = $resultado->fetchAll();
-            return $lista;
+            $stmt = $con->prepare("INSERT INTO `tbreceita`(`nomeReceita`, `modoPreparo`, `tempoReceita`, caminhoImg)
+                                    VALUES(?,?,?,?)");
+            $stmt->bindValue(1, $Receita->getNomeReceita());
+            $stmt->bindValue(2, $Receita->getModoPreparo());
+            $stmt->bindValue(3, $Receita->getTempoReceita());
+            $stmt->bindValue(4, $Receita->getCaminhoImg());
+            $stmt->execute();
+            $lastID = "SELECT LAST_INSERT_ID()";
+            $result = $con->query($lastID);
+            return $result->fetchAll()[0][0];
         }
 
         public function read_recent(){

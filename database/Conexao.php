@@ -12,7 +12,7 @@ class Conexao
         senha de acesso ao banco
       )
     */
-    $server = "0.tcp.sa.ngrok.io:13041";
+    $server = "localhost";
     $database = "bddicadavovo2";
     $user = "root";
     $password = "";

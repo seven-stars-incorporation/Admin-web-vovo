@@ -1,5 +1,5 @@
 <?php
-    require_once("database/Conexao.php");
+    require_once("../database/Conexao.php");
 
     class Ingrediente{
         private $idIngrediente, $valorIngrediente;

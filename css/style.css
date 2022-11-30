@@ -1006,41 +1006,41 @@ label.light {
 }
 
 .file-upload {
-  align-items: center;
-  font-size: 15px;
+    align-items: center;
+    font-size: 15px;
 }
 
 .file-upload__input {
-  display: none;
+    display: none;
 }
 
 .file-upload__button {
-  -webkit-appearance: none;
-  background: var(--color-primary);
-  border: var(--border-color);
-  border-radius: 4px;
-  outline: none;
-  padding: 0.5em 0.8em;
-  margin-right: 15px;
-  color: #ffffff;
-  font-size: 1em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bold;
-  cursor: pointer;
+    -webkit-appearance: none;
+    background: var(--color-primary);
+    border: var(--border-color);
+    border-radius: 4px;
+    outline: none;
+    padding: 0.5em 0.8em;
+    margin-right: 15px;
+    color: #ffffff;
+    font-size: 1em;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .file-upload__button:active {
-  background: var(--color-primary-variant);
+    background: var(--color-primary-variant);
 }
 
 .file-upload__label {
-  max-width: 250px;
-  font-size: 1rem;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  font-family: "Outfit", sans-serif;
-  font-weight: bold;
+    max-width: 250px;
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: "Outfit", sans-serif;
+    font-weight: bold;
 }
 
 
