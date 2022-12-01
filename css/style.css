@@ -439,11 +439,14 @@ main .recent-ingredients a {
 
 main table tbody td {
     height: 2.8rem;
+    font-weight: bold;
     border-bottom: 1px solid var(--color-dark);
     color: var(--color-dark-variant);
 }
 
-/* Tema */
+main table tbody tr:last-child td {
+    border: none;
+}
 
 .right {
     margin-top: 1.4rem;
@@ -515,10 +518,6 @@ main table tbody td {
     box-shadow: none;
 }
 
-/* .right .status-web-scraping .status-search .search-auto {
-
-} */
-
 /* cards de analises */
 
 .right .analytics-ingredients {
@@ -562,18 +561,6 @@ main table tbody td {
     display: flex;
 }
 
-.right .analytics-ingredients .item.sunny .icon {
-    background: var(--color-sunny);
-}
-
-.right .analytics-ingredients .item.winter .icon {
-    background: var(--color-winter);
-}
-
-.right .analytics-ingredients .item.sunset .icon {
-    background: var(--color-sunset);
-}
-
 .right .analytics-ingredients .add-something {
     background-color: transparent;
     border: 2px dashed var(--color-primary);
@@ -593,7 +580,7 @@ main table tbody td {
     font-weight: 600;
 }
 
-/* responsividade e os krlh haha */
+/* responsividade */
 
 @media screen and (max-width: 1200px) {
     .container {
@@ -733,82 +720,6 @@ main table tbody td {
     .right .top button span {
         font-size: 2rem;
     }
-}
-
-/* abelas */
-
-
-.container-table {
-    max-width: 700px;
-    width: 100%;
-    background-color: #fff;
-    padding: 25px 30px;
-    border-radius: var(--border-radius-2);
-    border: var(--border-color);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-}
-
-.container-table .title {
-    font-size: 25px;
-    font-weight: 500;
-    position: relative;
-}
-
-.container-table .title::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 30px;
-    border-radius: 5px;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-variant));
-}
-
-.styled-table {
-    border-collapse: collapse;
-    margin: auto;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 150px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    font-family: Outfit, sans-serif;
-    font-size: 15px;
-    width: 300px;
-}
-
-.styled-table thead tr {
-    background-color: var(--color-primary);
-    color: #ffffff;
-    text-align: left;
-
-}
-
-.styled-table th,
-.styled-table td {
-    padding: 12px 15px;
-}
-
-.styled-table th {
-    text-align: center;
-    font-weight: bold;
-}
-
-.styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-}
-
-.styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
-
-.styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid var(--color-primary);
-}
-
-.styled-table tbody tr.active-row {
-    font-weight: bold;
-    color: var(--color-primary);
 }
 
 /* Modal */
@@ -1042,53 +953,3 @@ label.light {
     font-family: "Outfit", sans-serif;
     font-weight: bold;
 }
-
-
-/* .div-radio {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: serif;
-    font-size: 3em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.radio {
-    font-size: 30px;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    color: black;
-}
-
-.circle {
-    position: relative;
-    height: 25px;
-    width: 25px;
-    border: 5px solid #3CE75B;
-    display: inline-block;
-    right: 125px;
-    border-radius: 50%;
-}
-
-.circle:after {
-    content: '';
-    height: 10px;
-    width: 10px;
-    display: block;
-    position: absolute;
-    background: #3CE75B;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    opacity: 0;
-}
-
-.radio input:checked~.circle:after {
-    opacity: 1;
-} */
-
-/* Radio button e select */
