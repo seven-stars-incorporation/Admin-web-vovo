@@ -57,13 +57,7 @@ $quantIngredientes = $ingrediente->count()[0][0];
                 <a href="Ingredientes.php">
                     <span class="material-symbols-sharp">inventory</span>
                     <h3>ingredientes</h3>
-                </a>
-
-                <!-- <a href="/dashboard-admin/Categorias.php">
-                    <span class="material-symbols-sharp">category</span>
-                    <h3>Categorias</h3>
-                </a> -->
-                
+                </a>        
             </div>
         </aside>
         <!-- fim da sidebar -->
@@ -72,7 +66,7 @@ $quantIngredientes = $ingrediente->count()[0][0];
             <h1>Dashboard</h1>
 
             <div class="insights-centered">
-                <!-- grafio de ingredientes -->
+                <!-- graficos -->
                 <div class="sales">
                     <span class="material-symbols-sharp">analytics</span>
                     <div>
@@ -117,13 +111,13 @@ $quantIngredientes = $ingrediente->count()[0][0];
                         </div>
                     </div>
                 </div>
-                <!-- fim do grafico de ingredientes -->
+                <!-- fim dos graficos -->
             </div>
             <!-- fim dos insights -->
 
             <div class="recent-ingredients" style="display: flex; flex-direction: column; align-items: center;">
                 <h2>Receitas Adicionadas Recentemente</h2>
-                <table class="styled-table" style="width: 50%">
+                <table>
                     <thead>
                         <tr>
                             <th>id</th>
@@ -171,48 +165,6 @@ $quantIngredientes = $ingrediente->count()[0][0];
                 </div>
             </div>
             <!-- fim do status de servico -->
-            <!--<div class="analytics-ingredients">
-                <h2>Ingredientes por Safra</h2>
-                <div class="item sunny">
-                    <div class="icon">
-                        <span class="material-symbols-sharp">sunny</span>
-                    </div>
-                    <div class="right">
-                        <div class="info">
-                            <h3>Verão</h3>
-                            <small class="text-muted">ultimos 14 dias</small>
-                        </div>
-                        <h5 class="success">+39%</h5>
-                        <h3>350</h3>
-                    </div>
-                </div>
-                <div class="item winter">
-                    <div class="icon">
-                        <span class="material-symbols-sharp">ac_unit</span>
-                    </div>
-                    <div class="right">
-                        <div class="info">
-                            <h3>Inverno</h3>
-                            <small class="text-muted">ultimos 14 dias</small>
-                        </div>
-                        <h5 class="danger">-17%</h5>
-                        <h3>110</h3>
-                    </div>
-                </div>
-                <div class="item sunset">
-                    <div class="icon">
-                        <span class="material-symbols-sharp">temp_preferences_eco</span>
-                    </div>
-                    <div class="right">
-                        <div class="info">
-                            <h3>primaveira</h3>
-                            <small class="text-muted">ultimos 14 dias</small>
-                        </div>
-                        <h5 class="success">+13%</h5>
-                        <h3>85</h3>
-                    </div>
-                </div>
-            </div>-->
         </div>
     </div>
 
