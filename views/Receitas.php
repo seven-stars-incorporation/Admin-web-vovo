@@ -49,7 +49,6 @@ if (isset($_GET['id'])){
             </div>
             <!-- sidebar -->
             <div class="sidebar">
-                <!-- active -->
                 <a href="Index.php">
                     <span class="material-symbols-sharp">grid_view</span>
                     <h3>Geral</h3>
@@ -183,7 +182,7 @@ if (isset($_GET['id'])){
 
             <div class="recent-ingredients" style="display: flex; flex-direction: column; align-items: center;">
                 <h2>Receitas</h2>
-                <table class="styled-table" style="width: 50%">
+                <table>
                     <thead>
                         <tr>
                             <th>id</th>
