@@ -45,7 +45,6 @@ $quantIngredientes = $ingrediente->count()[0][0];
             </div>
             <!-- sidebar -->
             <div class="sidebar">
-                <!-- active -->
                 <a href="Index.php" class="active">
                     <span class="material-symbols-sharp">grid_view</span>
                     <h3>Geral</h3>
@@ -141,7 +140,7 @@ $quantIngredientes = $ingrediente->count()[0][0];
                         
                     </tbody>
                 </table>
-                <a href="Receitas.php">Mostrar todos</a>
+                <a href="Receitas.php">Mostrar todas</a>
             </div>
         </main>
         <!-- fim da secao principal -->
