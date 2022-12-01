@@ -41,7 +41,6 @@ if (isset($_GET['id'])){
             </div>
             <!-- sidebar -->
             <div class="sidebar">
-                <!-- active -->
                 <a href="Index.php" >
                     <span class="material-symbols-sharp">grid_view</span>
                     <h3>Geral</h3>
@@ -56,11 +55,6 @@ if (isset($_GET['id'])){
                     <span class="material-symbols-sharp">inventory</span>
                     <h3>Ingredientes</h3>
                 </a>
-
-                <!-- <a href="/dashboard-admin/Categorias.php">
-                    <span class="material-symbols-sharp">category</span>
-                    <h3>Categorias</h3>
-                </a> -->
             </div>
         </aside>
         <!-- fim da sidebar -->
@@ -69,7 +63,7 @@ if (isset($_GET['id'])){
             <h1>Ingredientes</h1>
 
             <div class="insights-one" style='grid-template-columns: repeat(1, 1fr);'>
-                <!-- grafio de ingredientes -->
+                <!-- graficos -->
                 <div class="sales">
                     <span class="material-symbols-sharp">savings</span>
                         <div class="left">
@@ -106,13 +100,12 @@ if (isset($_GET['id'])){
                 </div>
 
                 
-                <!-- fim do grafico de ingredientes -->
+                <!-- fim dos graficos -->
             </div>
-            <!-- fim dos insights -->
 
             <div class="recent-ingredients" style="display: flex; flex-direction: column; align-items: center;">
-                <h2>Receitas</h2>
-                <table class="styled-table" style="width: 50%">
+                <h2>Ingredientes Cadastrados</h2>
+                <table>
                     <thead>
                         <tr>
                             <th>id</th>
